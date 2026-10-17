@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>K. Tejeswara — Data, AI & Development</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#141414;--card:#181818;--el:#242424;--red:#E50914;--tx:#fff;--mu:#b3b3b3;--bd:#2f2f2f;--disp:'Bebas Neue',Impact,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:72px;height:auto}
+*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.55 Inter,system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit}button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.wrap{padding:0 4%;max-width:1400px;margin:0 auto}
+h1,h2,h3{font-family:var(--disp);font-weight:400;letter-spacing:.02em;margin:0;line-height:1}
+h2{font-size:clamp(28px,4vw,40px);margin-bottom:14px}
+section{padding:48px 0}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:calc(10px + env(safe-area-inset-top,0px)) 4% 10px;display:flex;align-items:center;gap:18px;transition:background .3s}
+nav.s{background:rgba(20,20,20,.88);backdrop-filter:blur(10px)}
+nav:not(.s){background:linear-gradient(#000a,transparent)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.mono{width:34px;height:34px;background:var(--red);display:grid;place-items:center;font:22px var(--disp);border-radius:3px}
+.logo b{font:22px var(--disp);letter-spacing:.08em;display:block;line-height:1}
+.logo small{font-size:9px;color:var(--mu);letter-spacing:.14em}
+.links{display:flex;gap:16px;margin-left:12px}
+.links a{text-decoration:none;font-size:14px;color:var(--mu)}
+.links a.on,.links a:hover{color:#fff}
+.sp{flex:1}
+.ib{background:none;border:0;padding:6px;display:grid;place-items:center}
+.btn{border:0;border-radius:4px;padding:10px 20px;font-weight:600;display:inline-flex;gap:8px;align-items:center;text-decoration:none;font-size:15px}
+.btn.p{background:#fff;color:#000}.btn.r{background:var(--red)}.btn.g{background:rgba(109,109,110,.7)}
+.btn.o{background:none;border:1px solid var(--bd);color:#fff}
+.btn:hover{filter:brightness(.88)}
+#sb{display:none;position:absolute;right:4%;top:100%;background:var(--el);padding:8px;border-radius:4px;width:min(320px,92vw)}
+#sb.open{display:block}
+input,textarea{width:100%;background:#0d0d0d;border:1px solid var(--bd);color:#fff;border-radius:4px;padding:11px;font:inherit}
+.burger{display:none}
+#dr{position:fixed;inset:0 0 0 auto;width:min(280px,80vw);background:var(--el);z-index:60;transform:translateX(100%);transition:transform .3s;padding:70px 24px;display:flex;flex-direction:column;gap:18px}
+#dr.open{transform:none}#dr a{text-decoration:none;font-size:18px}
+.hero{min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:110px 0 50px;background:radial-gradient(ellipse at 78% 40%,#e5091433,transparent 55%),linear-gradient(#141414,#141414)}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:160px;background:linear-gradient(transparent,var(--bg))}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;position:relative;z-index:2;width:100%}
+.hero h1{font-size:clamp(56px,10vw,128px);color:#fff;margin:10px 0 6px}
+.tag{font:italic 500 clamp(20px,3vw,30px)/1.2 Inter;margin:0 0 10px}
+.badge{display:inline-block;background:var(--red);font-size:12px;font-weight:600;letter-spacing:.06em;padding:3px 9px;border-radius:2px}
+.badge.alt{background:var(--el);border:1px solid var(--bd);color:var(--mu)}
+.meta{color:var(--mu);font-size:14px;margin:8px 0}
+.acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.fx{width:min(340px,80%);aspect-ratio:1;margin:auto;position:relative;display:grid;place-items:center}
+.fx i{position:absolute;inset:0;border:1px solid #e5091466;border-radius:50%;animation:sp 22s linear infinite}
+.fx i:nth-child(2){inset:12%;border-color:#fff2;animation-duration:30s;animation-direction:reverse}
+.fx i:nth-child(3){inset:26%;border-style:dashed}
+.fx b{font:clamp(70px,14vw,120px) var(--disp);text-shadow:0 0 50px #e50914}
+.fx.portrait-wrap{width:min(390px,90%);aspect-ratio:4/5}.fx .portrait{position:relative;z-index:2;width:76%;height:88%;object-fit:cover;object-position:center 28%;border-radius:12px;border:1px solid #ffffff30;box-shadow:0 18px 60px #000a,0 0 45px #e5091422}.fx.portrait-wrap i{z-index:0}.fx.portrait-wrap i:nth-child(2){inset:7%}.fx.portrait-wrap i:nth-child(3){inset:14%}
+.fx i:before{content:"";position:absolute;top:-4px;left:50%;width:8px;height:8px;background:var(--red);border-radius:50%}
+@keyframes sp{to{transform:rotate(360deg)}}
+.row{margin-bottom:26px}.row h3{font-size:24px;margin-bottom:8px}
+.rw{position:relative}
+.tr{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 2px 24px;scrollbar-width:none}
+.tr::-webkit-scrollbar{display:none}
+.ar{position:absolute;top:14px;bottom:24px;width:44px;border:0;background:#000a;z-index:5;opacity:0;transition:opacity .2s;font-size:26px}
+.rw:hover .ar{opacity:1}.ar.l{left:-2px}.ar.rt{right:-2px}
+@media(hover:none){.ar{display:none}}
+.c{flex:0 0 clamp(230px,24vw,300px);scroll-snap-align:start;background:var(--card);border-radius:6px;overflow:hidden;position:relative;text-align:left;border:1px solid var(--bd);padding:0;transition:transform .25s,box-shadow .25s}
+.c:hover,.c:focus-visible{transform:scale(1.06);z-index:4;box-shadow:0 12px 30px #000c}
+.th{aspect-ratio:16/9;position:relative;display:grid;place-items:center;overflow:hidden}
+.th svg{position:absolute;inset:0;width:100%;height:100%}
+.th span{font:44px var(--disp);position:relative;opacity:.9}
+.th .badge{position:absolute;top:8px;left:8px;font-size:10px}
+.cb{padding:10px 12px 14px}.cb b{display:block;font-size:15px;line-height:1.25}
+.cb small{color:var(--mu);font-size:12px}
+.tg{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.tg em{font-style:normal;font-size:11px;background:var(--el);padding:2px 7px;border-radius:2px;color:var(--mu)}
+.ov{position:absolute;inset:0;background:linear-gradient(transparent 20%,#000e);display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding:12px;opacity:0;transition:opacity .25s;font-size:12.5px}
+.c:hover .ov,.c:focus-visible .ov{opacity:1}
+@media(hover:none){.ov{display:none}}
+.cc{display:flex;gap:6px}
+.cc span{width:32px;height:32px;border:1px solid #fff9;border-radius:50%;display:grid;place-items:center;font-size:13px;background:#0008}
+.cc span.dis{opacity:.35}
+.feat{border-color:#e5091488}
+.empty{color:var(--mu);border:1px dashed var(--bd);padding:26px;border-radius:6px;text-align:center}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 18px}
+.chip{background:var(--el);border:1px solid var(--bd);border-radius:20px;padding:6px 14px;font-size:14px}
+.chip.on{background:#fff;color:#000}
+.sk{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.sk button{background:var(--card);border:1px solid var(--bd);border-radius:6px;padding:12px;text-align:left}
+.sk button:hover{border-color:var(--red)}.sk small{display:block;color:var(--mu);font-size:12px}
+.mt{height:3px;background:var(--el);margin-top:8px}.mt i{display:block;height:100%;background:var(--red)}
+.tl{border-left:2px solid var(--bd);margin-left:6px}
+.tl div{padding:0 0 22px 22px;position:relative}
+.tl div:before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--red)}
+.tl small{color:var(--mu)}.tl p{margin:2px 0;color:var(--mu);font-size:14px}
+.ct{background:linear-gradient(#e5091422,transparent),var(--card);text-align:center;border-top:1px solid var(--bd)}
+.ct h2{font-size:clamp(40px,7vw,80px)}
+form{max-width:520px;margin:24px auto 0;display:grid;gap:10px;text-align:left}
+.er{color:#ff6b6b;font-size:12.5px;min-height:16px}
+footer{padding:26px 4%;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;color:var(--mu);font-size:13px;border-top:1px solid var(--bd)}
+footer a{margin-right:12px}
+#md{position:fixed;inset:0;z-index:80;background:#000b;display:none;overflow-y:auto;padding:4vh 3%;opacity:0;transition:opacity .25s}
+#md.open{display:block}#md.show{opacity:1}
+.box{max-width:860px;margin:auto;background:var(--card);border-radius:8px;overflow:hidden;transform:translateY(24px) scale(.97);transition:transform .3s;position:relative}
+#md.show .box{transform:none}
+.x{position:absolute;right:10px;top:10px;z-index:3;width:36px;height:36px;border-radius:50%;border:0;background:#000b;font-size:18px}
+.mh{aspect-ratio:21/9;min-height:150px;position:relative}.mh .th{position:absolute;inset:0;aspect-ratio:auto}
+.mh:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 30%,var(--card))}
+.mb{padding:0 clamp(16px,4vw,36px) 30px}
+.mb h2{font-size:clamp(30px,5vw,46px);margin:-30px 0 8px;position:relative;z-index:2}
+.tabs{display:flex;gap:6px;border-bottom:1px solid var(--bd);margin:18px 0}
+.tabs button{background:none;border:0;padding:10px 14px;color:var(--mu);border-bottom:3px solid transparent}
+.tabs button[aria-selected=true]{color:#fff;border-color:var(--red)}
+.mb h4{margin:18px 0 4px;font-size:15px}.mb p,.mb li{color:#d2d2d2;font-size:15px}.mb ul{padding-left:20px}
+.ep{display:flex;gap:14px;padding:14px;background:var(--el);border-radius:6px;margin-bottom:8px}
+.ep>b{font:30px var(--disp);color:var(--mu);min-width:30px}.ep p{margin:2px 0 0;font-size:13.5px}
+.lk{display:flex;gap:10px;flex-wrap:wrap}.lk .dis{opacity:.4;pointer-events:none;border:1px dashed var(--mu);background:none;color:var(--mu)}
+#ts{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:#fff;color:#000;padding:10px 18px;border-radius:4px;opacity:0;transition:.3s;z-index:99;max-width:90vw;font-size:14px}
+#ts.on{opacity:1;transform:translate(-50%,0)}
+.rv{opacity:0;transform:translateY(18px);transition:.6s}.rv.in{opacity:1;transform:none}
+@media(max-width:820px){.links,.rb{display:none}.burger{display:grid}.hero .wrap{grid-template-columns:1fr}.fx{display:grid;width:min(240px,65%);margin:20px auto 0}.hero{min-height:84vh}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style></head><body>
+<nav id="nv"><a class="logo" href="#home"><span class="mono">KT</span><span><b>TEJESWARA</b><small>DATA • AI • DEVELOPMENT</small></span></a>
+<div class="links" id="lk"></div><div class="sp"></div>
+<button class="ib" id="sbt" aria-label="Search projects">🔍</button>
+<a class="btn g rb" id="rs" href="#">Resume</a>
+<button class="ib burger" id="bg" aria-label="Open menu" aria-expanded="false">☰</button>
+<div id="sb"><input id="q" type="search" placeholder="Search title, technology or category" aria-label="Search projects"></div></nav>
+<div id="dr" aria-label="Menu"></div>
+<header class="hero" id="home"><div class="wrap"><div>
+<span class="badge" id="hb"></span>
+<h1>K. TEJESWARA</h1><p class="tag">“Turning Data Into Decisions.”</p>
+<div class="meta">Data Analytics • Machine Learning • Power BI • Python</div>
+<div class="meta">B.Tech CSE | AI &amp; Data Science Interests | Portfolio 2026</div>
+<p style="max-width:540px;color:#d2d2d2" id="hs"></p>
+<div class="acts"><a class="btn p" href="#projects">▶ Explore Projects</a><button class="btn g" id="ab">ⓘ About Me</button><a class="btn o rs2" href="#">Download Resume</a></div>
+</div><div class="fx portrait-wrap"><i></i><i></i><i></i><img class="portrait" src="assets/tejeswara-profile.png" alt="Professional portrait of K. Tejeswara"></div></div></header>
+<main>
+<div class="acts" style="justify-content:center;margin:16px 0"><a class="btn g" href="resume/Tejeswara_K_DataScience.pdf" download>Data Science Resume</a></div>
+<section id="projects"><div class="wrap"><h2>Projects</h2><div id="rows"></div></div></section>
+<section id="skills"><div class="wrap rv"><h2>Browse Skills</h2><div class="chips" id="sc"></div><div class="sk" id="sg"></div></div></section>
+<section id="experience"><div class="wrap rv"><h2>Experience &amp; Education</h2><div class="tl" id="tl"></div></div></section>
+<section id="certificates"><div class="wrap rv"><h2>Certificates</h2><div id="cg"></div></div></section>
+<section class="ct" id="contact"><div class="wrap rv"><h2>Let's Build Something Meaningful.</h2>
+<p style="color:var(--mu);max-width:560px;margin:0 auto">Open to entry-level opportunities, data analytics projects, and collaborations in AI and software development.</p>
+<div class="acts" style="justify-content:center"><a class="btn p" id="li" target="_blank" rel="noopener">LinkedIn</a><a class="btn p" id="gh" target="_blank" rel="noopener">GitHub</a><button class="btn g" id="ce">Copy email</button></div>
+<form id="cf" novalidate><input name="n" placeholder="Name" aria-label="Name"><div class="er" data-f="n"></div><input name="e" type="email" placeholder="Email" aria-label="Email"><div class="er" data-f="e"></div><textarea name="m" rows="4" placeholder="Message" aria-label="Message"></textarea><div class="er" data-f="m"></div><button class="btn r" style="justify-content:center">Send message</button></form></div></section>
+</main>
+<footer><div id="fl"></div><div>© <span id="yr"></span> K. Tejeswara</div><a href="#home">↑ Back to top</a></footer>
+<div id="md" role="dialog" aria-modal="true" aria-labelledby="mt"><div class="box" id="bx"></div></div>
+<div id="ts" role="status"></div>
+<script>
+/* ===== EDIT HERE: all personal content lives in CFG, PROJECTS, SKILLS, TIMELINE, CERTS ===== */
+const CFG={name:"K. Tejeswara",email:"",resume:"resume/Tejeswara_K_DataAnalyst_Resume.pdf",resume2:"resume/Tejeswara_K_DataScience.pdf",portrait:"",linkedin:"https://www.linkedin.com/in/k-tejeswara",github:"https://github.com/Tejeswara-cloud",
+ formEndpoint:"", /* add a Formspree/Basin URL to enable real delivery */
+ summary:"I'm a Computer Science Engineering student interested in data analytics, AI, machine learning and full-stack development. I turn raw data into insights, build interactive dashboards and explore predictive models to solve practical problems.",
+ about:{edu:"B.Tech, Computer Science and Engineering — KMM Institute of Technology & Science (verify before publishing).",interests:"Data analytics, Power BI, machine learning, full-stack development.",exp:"Hands-on analytical projects spanning dashboards, data cleaning, EDA and predictive models.",goal:"Seeking entry-level data analyst roles and collaborations in AI and software."}};
+/* status: completed | in-progress | planned | verify.  Change a status here and the badge, buttons and roadmap update everywhere. */
+const M=(t,d)=>({title:t,description:d,status:"planned"});
+const PROJECTS=[
+{id:"milk",title:"Intelligent Milk Pricing & Farmer Advisory System",category:["AgriTech","Data Analytics","Machine Learning","Power BI"],featured:true,status:"planned",hue:"#7a1c1c",
+ description:"A planned data-driven system to analyze cow and buffalo milk quality, explore collection trends, support milk-rate prediction and offer farmer advisory insights.",
+ problem:"Milk collection data (type, Fat %, SNF %, CLR, quantity, shift, farmer, date) is hard to compare by eye, which makes quality analysis and pricing decisions slower and less consistent.",
+ solution:"Planned: clean and explore the data, compare cow and buffalo milk and morning/evening shifts, build Power BI dashboards with KPIs, then evaluate ML models for rate prediction and turn findings into farmer advice. The dashboard (descriptive analytics) and the ML model (prediction) are separate deliverables.",
+ value:"Clearer quality analysis, better collection visibility, informed pricing decisions and actionable farmer insights.",
+ features:["Analyze milk quality using Fat %, SNF % and CLR","Compare cow and buffalo milk data","Analyze morning and evening collection shifts","Interactive Power BI dashboards and business KPIs","Explore ML models for milk-rate prediction","Farmer advisory recommendations from the analysis"],
+ technologies:["Python","Pandas","NumPy","Scikit-learn","SQL","Power BI","Power Query","DAX"],role:"To be confirmed",
+ github:"",demo:"",docs:"",
+ milestones:[M("Dataset Exploration","Dataset exploration and requirement analysis."),M("Data Cleaning","Data cleaning and preprocessing."),M("Milk Quality Analysis","Exploratory analysis and milk quality comparisons."),M("Power Query & Data Modeling","Transformations and relational data model."),M("Power BI Dashboard & DAX","Dashboard development and business metrics."),M("Predictive Model & Farmer Advisory","Model development, evaluation, advisory functionality and final integration.")]},
+{id:"blinkit",title:"Blinkit Sales Analysis Dashboard",category:["Data Analytics","Power BI"],status:"verify",hue:"#8a6a00",description:"Sales analysis with business KPIs, product performance and outlet-level comparisons. Details editable until verified.",problem:"Editable: describe the business question.",solution:"Editable: data cleaning, KPI design and interactive visuals as implemented.",technologies:["Power BI","Excel","Power Query"],milestones:[]},
+{id:"zomato",title:"Zomato Data Analysis",category:["Data Analytics","EDA"],status:"verify",hue:"#8f1d2c",description:"Exploratory analysis of restaurant and food-business data with visual comparisons.",problem:"Editable.",solution:"Editable: insights from the actual dataset.",technologies:["Python","Pandas","Matplotlib","Seaborn"],milestones:[]},
+{id:"loan",title:"Loan Approval Prediction",category:["Machine Learning","Predictive Analytics"],status:"verify",hue:"#1d4f8f",description:"Classification problem predicting loan approval. Model and accuracy to be added only once verified.",problem:"Predict whether a loan application is approved.",solution:"Editable: preparation, features, model selection and evaluation.",technologies:["Python","Scikit-learn","Pandas"],milestones:[]},
+{id:"insta",title:"Instagram Data Analysis",category:["Data Analytics","Social Media Analytics"],status:"verify",hue:"#8f2d7a",description:"Engagement and performance metrics with visual reporting.",problem:"Editable.",solution:"Editable.",technologies:["Python","Pandas","Matplotlib"],milestones:[]},
+{id:"titanic",title:"Titanic Survival Prediction",category:["Machine Learning","Classification"],status:"verify",hue:"#1d6b73",description:"Classification, feature engineering and model experimentation.",problem:"Predict passenger survival.",solution:"Editable: only methods actually implemented.",technologies:["Python","Scikit-learn"],milestones:[]},
+{id:"covid",title:"COVID-19 Data Visualization",category:["Data Visualization","Public Data"],status:"verify",hue:"#2d6b2d",description:"Time-based trends and comparisons from public data.",problem:"Editable.",solution:"Editable.",technologies:["Python","Matplotlib","Seaborn"],milestones:[]},
+{id:"opp",title:"Opportunity Data Analysis",category:["Data Analytics","Business Intelligence"],status:"verify",hue:"#5a3a8f",description:"Opportunity-related dataset analysis. Scope to be verified.",problem:"Editable.",solution:"Editable.",technologies:["Python","SQL"],milestones:[]},
+{id:"fullstack",title:"Full-Stack Predictive Dashboard",category:["Development","Analytics"],status:"verify",hue:"#3a5a8f",description:"Placeholder — keep only if distinct from the milk project or another dashboard.",problem:"Editable.",solution:"Editable.",technologies:["React","Python"],milestones:[]},
+{id:"secure",title:"Secure File-Sharing Platform",category:["Software Development","Security"],status:"verify",hue:"#444",description:"Editable entry. Architecture, authentication and security features to be described only as implemented.",problem:"Editable.",solution:"Editable.",technologies:["Security"],milestones:[]}];
+const ROWS=[["Continue Exploring",["milk","blinkit","loan"]],["Featured Originals",["milk","secure","fullstack"]],["Data Science & Machine Learning",["loan","titanic","milk","zomato"]],["Power BI & Business Intelligence",["blinkit","opp","milk"]],["Client Work & Internships",[]],["More Projects to Explore",["insta","covid","zomato","titanic"]]];
+const SKILLS=[["Python","Programming"],["SQL","Programming"],["Java","Programming"],["C / C++","Programming"],["HTML, CSS, JavaScript","Programming"],["Excel","Data Analytics"],["Power BI","Visualization"],["Power Query","Data Analytics"],["Pandas","Data Analytics"],["NumPy","Data Analytics"],["EDA","Data Analytics"],["Data Cleaning","Data Analytics"],["KPI Reporting","Data Analytics"],["Matplotlib","Visualization"],["Seaborn","Visualization"],["Scikit-learn","Machine Learning"],["Supervised Learning","Machine Learning"],["Unsupervised Learning","Machine Learning"],["Linear / Logistic Regression","Machine Learning"],["Decision Trees","Machine Learning"],["KNN","Machine Learning"],["SVM","Machine Learning"],["K-Means","Machine Learning"],["React","Frameworks"],["Jupyter / Colab","Cloud & Tools"],["Git & GitHub","Cloud & Tools"],["IBM Watson Studio","Cloud & Tools"],["Google Cloud","Cloud & Tools"]].map(([n,c])=>({n,c,level:"",pct:0})); /* level e.g. "Working Knowledge"; pct 0-100 only if you set it */
+const TIMELINE=[{t:"B.Tech, Computer Science & Engineering",o:"KMM Institute of Technology & Science, Tirupati",d:"2023 – 2027 (verify)",x:"AI & Data Science interests."},{t:"Data Science Internship",o:"Internship Studio",d:"Dates to be verified",x:"Edit responsibilities once confirmed."},{t:"Excelerate AI-Powered Data Analysis",o:"Unified Mentor Pvt. Ltd.",d:"Participation status and dates to be verified",x:"Not claimed as completed until verified."}];
+const CERTS=[]; /* {title,issuer,date,image,verifyUrl} */
+/* ===== END CONFIG ===== */
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const ST={planned:"UPCOMING PROJECT","in-progress":"IN PROGRESS",completed:"COMPLETED",verify:"STATUS TO VERIFY"};
+const toast=m=>{const t=$("#ts");t.textContent=m;t.classList.add("on");clearTimeout(t._);t._=setTimeout(()=>t.classList.remove("on"),2800)};
+const byId=id=>PROJECTS.find(p=>p.id===id);
+const SECS=["home","projects","skills","experience","certificates","contact"],LBL=["Home","Projects","Skills","Experience","Certificates","Contact"];
+$("#lk").innerHTML=SECS.map((s,i)=>`<a href="#${s}" data-s="${s}">${LBL[i]}</a>`).join("");
+$("#dr").innerHTML=SECS.map((s,i)=>`<a href="#${s}">${LBL[i]}</a>`).join("");
+$("#fl").innerHTML=SECS.map((s,i)=>`<a href="#${s}">${LBL[i]}</a>`).join("");
+$("#li").href=CFG.linkedin;$("#gh").href=CFG.github;$("#hs").textContent=CFG.summary;$("#yr").textContent=new Date().getFullYear();
+const fp=PROJECTS.find(p=>p.featured);$("#hb").textContent="FEATURED • "+ST[fp.status];
+/* resume */
+$$("#rs,.rs2").forEach(a=>{if(CFG.resume){a.href=CFG.resume;a.setAttribute("download","")}else a.addEventListener("click",e=>{e.preventDefault();toast("Resume not set up: add your PDF and set CFG.resume")})});
+/* nav */
+addEventListener("scroll",()=>{$("#nv").classList.toggle("s",scrollY>40);let c="home";SECS.forEach(s=>{const e=document.getElementById(s);if(e&&e.getBoundingClientRect().top<140)c=s});$$(".links a").forEach(a=>a.classList.toggle("on",a.dataset.s===c))},{passive:true});
+$("#sbt").onclick=()=>{$("#sb").classList.toggle("open");$("#q").focus()};
+$("#bg").onclick=()=>{const o=$("#dr").classList.toggle("open");$("#bg").setAttribute("aria-expanded",o);$("#bg").textContent=o?"✕":"☰"};
+$$("#dr a").forEach(a=>a.onclick=()=>{$("#dr").classList.remove("open");$("#bg").textContent="☰"});
+/* cards + rows */
+const art=p=>`<svg viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="g${p.id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${p.hue}"/><stop offset="1" stop-color="#141414"/></linearGradient></defs><rect width="160" height="90" fill="url(#g${p.id})"/>${p.id==="milk"?'<path d="M0 62Q40 48 80 60T160 54V90H0Z" fill="#0d0d0d"/><path d="M0 72Q50 60 100 70T160 66V90H0Z" fill="#050505"/><path d="M104 46l12-10 12 10v14h-24Z" fill="#050505" stroke="#E50914" stroke-width=".8"/><circle cx="30" cy="22" r="9" fill="#E5091455"/>':'<circle cx="120" cy="30" r="40" fill="#fff" opacity=".05"/><path d="M0 70L40 50l30 12 40-30 50 24v34H0Z" fill="#0006"/>'}</svg>`;
+const card=p=>`<button class="c ${p.featured?"feat":""}" data-id="${p.id}" aria-label="Open ${esc(p.title)}"><div class="th">${art(p)}<span aria-hidden="true">${esc(p.title.split(" ").filter(w=>/^[A-Z]/.test(w)).slice(0,2).map(w=>w[0]).join(""))}</span><span class="badge ${p.status==="planned"?"":"alt"}">${ST[p.status]}</span></div><div class="cb"><b>${esc(p.title)}</b><small>${esc(p.category.join(" • "))}</small><div class="tg">${p.technologies.slice(0,4).map(t=>`<em>${esc(t)}</em>`).join("")}</div></div><div class="ov"><span>${esc(p.description)}</span><div class="cc"><span title="Overview">ⓘ</span><span class="${p.github?"":"dis"}" title="GitHub">⌥</span><span class="${p.demo?"":"dis"}" title="Live demo">▶</span></div></div></button>`;
+function renderRows(){const q=$("#q").value.trim().toLowerCase(),R=$("#rows");
+ if(q){const m=PROJECTS.filter(p=>[p.title,p.category.join(" "),p.technologies.join(" ")].join(" ").toLowerCase().includes(q));
+  R.innerHTML=`<div class="row"><h3>Results for “${esc(q)}”</h3>${m.length?`<div class="tr" style="flex-wrap:wrap;overflow:visible">${m.map(card).join("")}</div>`:`<div class="empty">No projects match. Try a technology like “Power BI”.</div>`}</div>`;return}
+ R.innerHTML=ROWS.map(([t,ids])=>`<div class="row"><h3>${esc(t)}</h3>${ids.length?`<div class="rw"><button class="ar l" aria-label="Scroll left">‹</button><div class="tr">${ids.map(i=>card(byId(i))).join("")}</div><button class="ar rt" aria-label="Scroll right">›</button></div>`:`<div class="empty">Internship and client projects will be added here.</div>`}</div>`).join("")}
+$("#q").oninput=renderRows;
+$("#rows").addEventListener("click",e=>{const a=e.target.closest(".ar");if(a){const t=a.parentNode.querySelector(".tr");t.scrollBy({left:(a.classList.contains("l")?-1:1)*t.clientWidth*.8,behavior:"smooth"});return}const c=e.target.closest(".c");if(c)openP(c.dataset.id)});
+/* modal */
+let last=null;
+function openM(html){last=document.activeElement;$("#bx").innerHTML=`<button class="x" aria-label="Close dialog">✕</button>`+html;const m=$("#md");m.classList.add("open");document.body.style.overflow="hidden";requestAnimationFrame(()=>m.classList.add("show"));$(".x").focus();$(".x").onclick=closeM}
+function closeM(){const m=$("#md");m.classList.remove("show");document.body.style.overflow="";setTimeout(()=>m.classList.remove("open"),250);last&&last.focus()}
+addEventListener("keydown",e=>{if(e.key==="Escape"&&$("#md").classList.contains("open"))closeM()});
+$("#md").addEventListener("click",e=>{if(e.target.id==="md")closeM()});
+const li=a=>a.map(x=>`<li>${esc(x)}</li>`).join("");
+function openP(id){const p=byId(id),ms=p.milestones;
+ const link=(l,u,i)=>u?`<a class="btn p" href="${esc(u)}" target="_blank" rel="noopener">${i} ${l}</a>`:`<span class="btn dis" aria-disabled="true">${i} ${l}: not linked yet</span>`;
+ const T={ov:`<h4>Problem</h4><p>${esc(p.problem)}</p><h4>Solution approach</h4><p>${esc(p.solution)}</p>${p.value?`<h4>Practical value</h4><p>${esc(p.value)}</p>`:""}${p.features?`<h4>Planned features</h4><ul>${li(p.features)}</ul>`:""}<h4>Technology${p.status==="planned"?" (subject to final implementation)":""}</h4><div class="tg">${p.technologies.map(t=>`<em>${esc(t)}</em>`).join("")}</div><h4>Role</h4><p>${esc(p.role||"To be confirmed")}</p>`,
+ rm:ms.length?ms.map((m,i)=>`<div class="ep"><b>${i+1}</b><div><b style="font-size:15px">Episode ${i+1}: ${esc(m.title)}</b> <span class="badge alt" style="font-size:10px">${esc((ST[m.status]||m.status).replace("UPCOMING PROJECT","PLANNED"))}</span><p>${esc(m.description)}</p></div></div>`).join(""):`<div class="empty">Milestones will be added here.</div>`,
+ lk:`<div class="lk">${link("GitHub",p.github,"⌥")}${link("Live demo",p.demo,"▶")}${link("Documentation",p.docs,"📄")}</div>${p.github?"":'<p style="margin-top:14px;font-size:13px">Repository not linked.</p>'}`};
+ openM(`<div class="mh"><div class="th">${art(p)}</div></div><div class="mb"><h2 id="mt">${esc(p.title)}</h2><span class="badge ${p.status==="planned"?"":"alt"}">${ST[p.status]}</span> <span class="meta">${esc(p.category.join(" • "))}</span><p>${esc(p.description)}</p>
+ <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="ov">Overview</button><button role="tab" aria-selected="false" data-t="rm">${p.status==="planned"?"Roadmap":"Episodes"}</button><button role="tab" aria-selected="false" data-t="lk">Links</button></div><div id="tb">${T.ov}</div></div>`);
+ $$(".tabs button").forEach(b=>b.onclick=()=>{$$(".tabs button").forEach(x=>x.setAttribute("aria-selected",x===b));$("#tb").innerHTML=T[b.dataset.t]})}
+$("#ab").onclick=()=>{const a=CFG.about;openM(`<div class="mb" style="padding-top:50px"><h2 id="mt" style="margin-top:0">About ${esc(CFG.name)}</h2><h4>Education</h4><p>${esc(a.edu)}</p><h4>Technical interests</h4><p>${esc(a.interests)}</p><h4>Project experience</h4><p>${esc(a.exp)}</p><h4>Career goals</h4><p>${esc(a.goal)}</p></div>`)};
+/* skills */
+let cat="All Skills";const CATS=["All Skills","Programming","Data Analytics","Machine Learning","Visualization","Frameworks","Cloud & Tools"];
+function renderSk(){$("#sc").innerHTML=CATS.map(c=>`<button class="chip ${c===cat?"on":""}" aria-pressed="${c===cat}">${c}</button>`).join("");
+ $("#sg").innerHTML=SKILLS.filter(s=>cat==="All Skills"||s.c===cat).map(s=>`<button data-n="${esc(s.n)}"><b>${esc(s.n)}</b><small>${esc(s.c)}${s.level?" • "+esc(s.level):""}</small>${s.pct?`<div class="mt"><i style="width:${s.pct}%"></i></div>`:""}</button>`).join("");
+ $$(".chip").forEach(b=>b.onclick=()=>{cat=b.textContent;renderSk()});
+ $$("#sg button").forEach(b=>b.onclick=()=>{$("#q").value=b.dataset.n.split(" ")[0];$("#sb").classList.add("open");renderRows();$("#projects").scrollIntoView()})}
+$("#tl").innerHTML=TIMELINE.map(e=>`<div><b>${esc(e.t)}</b><br><small>${esc(e.o)} • ${esc(e.d)}</small><p>${esc(e.x)}</p></div>`).join("");
+$("#cg").innerHTML=CERTS.length?`<div class="sk">${CERTS.map(c=>`<div class="c" style="flex:none"><img loading="lazy" src="${esc(c.image)}" alt="Certificate: ${esc(c.title)}" style="width:100%"><div class="cb"><b>${esc(c.title)}</b><small>${esc(c.issuer)} • ${esc(c.date)}</small>${c.verifyUrl?`<br><a href="${esc(c.verifyUrl)}" target="_blank" rel="noopener">Verify</a>`:""}</div></div>`).join("")}</div>`:`<div class="empty">Certificates will be added here.</div>`;
+/* contact */
+$("#ce").onclick=()=>{if(!CFG.email)return toast("Email not set: add it to CFG.email");navigator.clipboard?.writeText(CFG.email).then(()=>toast("Email copied"),()=>toast(CFG.email))};
+$("#cf").onsubmit=async e=>{e.preventDefault();const f=e.target,v={n:f.n.value.trim(),e:f.e.value.trim(),m:f.m.value.trim()},er={};
+ if(v.n.length<2)er.n="Enter your name.";if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v.e))er.e="Enter a valid email address.";if(v.m.length<10)er.m="Write at least 10 characters.";
+ $$(".er").forEach(d=>d.textContent=er[d.dataset.f]||"");if(Object.keys(er).length)return;
+ if(!CFG.formEndpoint)return toast("Demo mode: set CFG.formEndpoint to deliver messages");
+ try{const r=await fetch(CFG.formEndpoint,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(v)});if(!r.ok)throw 0;f.reset();toast("Message sent")}catch{toast("Couldn't send. Please try LinkedIn instead.")}};
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.1});$$(".rv").forEach(n=>io.observe(n));
+renderRows();renderSk();
+</script></body></html>
